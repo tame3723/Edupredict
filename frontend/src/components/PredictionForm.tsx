@@ -99,9 +99,9 @@ export const PredictionForm: React.FC<PredictionFormProps> = ({
             <div key={field.name} className="space-y-2">
               <label className="block text-sm font-medium text-gray-700">
                 {field.label}
-                {field.description && (
+                {(field as any).description && (
                   <span className="block text-xs text-gray-500 font-normal mt-1">
-                    {field.description}
+                    {(field as any).description}
                   </span>
                 )}
               </label>
@@ -132,19 +132,19 @@ export const PredictionForm: React.FC<PredictionFormProps> = ({
                 <div className="space-y-2">
                   <input
                     type="range"
-                    min={field.min}
-                    max={field.max}
-                    value={formData[field.name as keyof StudentData] as number || field.min}
+                    min={field.min!}
+                    max={field.max!}
+                    value={formData[field.name as keyof StudentData] as number || field.min!}
                     onChange={(e) => handleInputChange(field.name, parseInt(e.target.value))}
                     className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
                   />
                   <div className="flex justify-between text-xs text-gray-500">
-                    <span>{field.minLabel || field.min}</span>
+                    <span>{(field as any).minLabel || field.min}</span>
                     <span className="font-medium text-primary-600">
                       {formData[field.name as keyof StudentData] || field.min}
-                      {field.unit && ` ${field.unit}`}
+                      {(field as any).unit && ` ${(field as any).unit}`}
                     </span>
-                    <span>{field.maxLabel || field.max}</span>
+                    <span>{(field as any).maxLabel || field.max}</span>
                   </div>
                 </div>
               ) : (
@@ -159,7 +159,7 @@ export const PredictionForm: React.FC<PredictionFormProps> = ({
                   )}
                   className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
                   required
-                  placeholder={field.placeholder}
+                  placeholder={(field as any).placeholder}
                 />
               )}
             </div>

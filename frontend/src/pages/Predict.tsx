@@ -23,7 +23,7 @@ export const Predict: React.FC<PredictProps> = ({
 }) => {
   const [predictionResults, setPredictionResults] = useState<PredictionResponse | null>(existingResults || null);
   const [showResults, setShowResults] = useState(!!existingResults);
-  const { predictPerformance, generateSampleData, loading, error } = useApi();
+  const { predictPerformance, loading, error } = useApi();
 
   useEffect(() => {
     if (existingResults) {

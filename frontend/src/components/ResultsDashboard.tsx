@@ -9,7 +9,6 @@ import {
   Lightbulb,
   Award,
   AlertTriangle,
-  Clock,
   Zap
 } from 'lucide-react';
 import { PERFORMANCE_COLORS, PERFORMANCE_GRADIENTS } from '../utils/constants';

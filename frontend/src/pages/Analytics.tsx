@@ -134,7 +134,7 @@ export const Analytics: React.FC = () => {
             </div>
             
             <div className="space-y-4">
-              {modelInfo?.model_info?.regression_models?.map((model: string, index: number) => (
+              {modelInfo?.model_info?.regression_models?.map((model: string) => (
                 <div key={model} className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
                   <div className="flex items-center space-x-3">
                     <div className="w-3 h-3 bg-primary-500 rounded-full"></div>
@@ -158,7 +158,7 @@ export const Analytics: React.FC = () => {
             </div>
             
             <div className="space-y-4">
-              {modelInfo?.model_info?.classification_models?.map((model: string, index: number) => (
+              {modelInfo?.model_info?.classification_models?.map((model: string) => (
                 <div key={model} className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
                   <div className="flex items-center space-x-3">
                     <div className="w-3 h-3 bg-green-500 rounded-full"></div>

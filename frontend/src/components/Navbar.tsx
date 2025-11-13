@@ -1,16 +1,19 @@
 import React from 'react';
 import { BookOpen, BarChart3, Home } from 'lucide-react';
 
+// Define the same Page type as in App.tsx
+type Page = 'home' | 'predict' | 'analytics';
+
 interface NavbarProps {
-  currentPage: string;
-  onPageChange: (page: string) => void;
+  currentPage: Page;
+  onPageChange: (page: Page) => void;  // Changed from string to Page
 }
 
 export const Navbar: React.FC<NavbarProps> = ({ currentPage, onPageChange }) => {
   const navItems = [
-    { id: 'home', label: 'Home', icon: Home },
-    { id: 'predict', label: 'Predict', icon: BookOpen },
-    { id: 'analytics', label: 'Analytics', icon: BarChart3 },
+    { id: 'home' as Page, label: 'Home', icon: Home },
+    { id: 'predict' as Page, label: 'Predict', icon: BookOpen },
+    { id: 'analytics' as Page, label: 'Analytics', icon: BarChart3 },
   ];
 
   return (

@@ -1,4 +1,20 @@
-export const FORM_FIELDS = {
+// Form Field Interface
+export interface FormField {
+  name: string;
+  label: string;
+  type: 'text' | 'number' | 'select' | 'checkbox' | 'range';
+  min?: number;
+  max?: number;
+  step?: number;
+  options?: string[];
+  description?: string;
+  minLabel?: string;
+  maxLabel?: string;
+  unit?: string;
+  placeholder?: string;
+}
+
+export const FORM_FIELDS: { [key: string]: FormField[] } = {
   cognitive: [
     { 
       name: 'cognitiveAbility', 

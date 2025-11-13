@@ -1,12 +1,10 @@
 import React from 'react';
 import { 
-  BookOpen, 
   BarChart3, 
   Target, 
   Users, 
   Zap,
-  ArrowRight,
-  CheckCircle
+  ArrowRight
 } from 'lucide-react';
 
 interface HomeProps {

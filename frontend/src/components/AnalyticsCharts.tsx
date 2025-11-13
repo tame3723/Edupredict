@@ -6,7 +6,6 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
-  Legend,
   ResponsiveContainer,
   PieChart,
   Pie,
@@ -130,8 +129,8 @@ export const AnalyticsCharts: React.FC<AnalyticsChartsProps> = ({
                   paddingAngle={2}
                   dataKey="value"
                 >
-                  {performanceData.map((entry, index) => (
-                    <Cell key={`cell-${index}`} fill={entry.color} />
+                  {performanceData.map((entry) => (
+                    <Cell key={`cell-${entry.name}`} fill={entry.color} />
                   ))}
                 </Pie>
                 <Tooltip />
@@ -141,7 +140,7 @@ export const AnalyticsCharts: React.FC<AnalyticsChartsProps> = ({
           
           <div className="md:col-span-2 space-y-4">
             <div className="grid grid-cols-3 gap-4">
-              {performanceData.map((item, index) => (
+              {performanceData.map((item) => (
                 <div key={item.name} className="text-center">
                   <div 
                     className="w-4 h-4 rounded-full mx-auto mb-2"
