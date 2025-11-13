@@ -1,18 +1,19 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Navbar } from './components/Navbar';
 import { Home } from './pages/Home';
 import { Predict } from './pages/Predict';
 import { Analytics } from './pages/Analytics';
+import { PredictionResponse } from './types/Student';
 import './App.css';
 
 type Page = 'home' | 'predict' | 'analytics';
 
 // Store prediction results globally to persist across navigation
-let globalPredictionResults: any = null;
+let globalPredictionResults: PredictionResponse | null = null;
 
 function App() {
   const [currentPage, setCurrentPage] = useState<Page>('home');
-  const [predictionResults, setPredictionResults] = useState<any>(globalPredictionResults);
+  const [predictionResults, setPredictionResults] = useState<PredictionResponse | null>(globalPredictionResults);
 
   const handlePageChange = (page: Page) => {
     // Save current prediction results before switching pages
@@ -27,7 +28,7 @@ function App() {
     globalPredictionResults = null;
   };
 
-  const handlePredictionComplete = (results: any) => {
+  const handlePredictionComplete = (results: PredictionResponse) => {
     setPredictionResults(results);
     globalPredictionResults = results;
   };
