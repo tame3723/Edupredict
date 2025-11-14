@@ -20,14 +20,20 @@ if __name__ == '__main__':
     # Initialize application
     initialize_app()
     
-    # Start Flask development server
-    print("\n🌐 Starting server at http://localhost:5000")
-    print("📚 API Documentation available at http://localhost:5000")
+    # Get port from Railway environment variable or default to 5000
+    port = int(os.environ.get('PORT', 5000))
+    host = os.environ.get('HOST', '0.0.0.0')
+    
+    # Disable debug mode in production
+    debug = os.environ.get('DEBUG', 'False').lower() == 'true'
+    
+    print(f"\n🌐 Starting server at http://{host}:{port}")
+    print("📚 API Documentation available at /")
     print("⏹️  Press Ctrl+C to stop the server\n")
     
     app.run(
-        host='0.0.0.0',
-        port=5000,
-        debug=True,
+        host=host,
+        port=port,
+        debug=debug,  # False in production
         threaded=True
     )
