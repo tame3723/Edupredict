@@ -1,9 +1,0 @@
-[build]
-builder = "DOCKERFILE"
-dockerfilePath = "./Dockerfile"
-
-[deploy]
-startCommand = "python run.py"
-
-[[services]]
-http_health_check = "/api/health"
