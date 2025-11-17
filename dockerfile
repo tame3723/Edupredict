@@ -8,19 +8,19 @@ RUN apt-get update && apt-get install -y \
 # Set working directory
 WORKDIR /app
 
-# Copy requirements first for better caching
-COPY requirements.txt .
+# Copy backend requirements
+COPY backend/requirements.txt .
 
 # Install Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy application code
-COPY . .
+# Copy backend application code
+COPY backend/ .
 
-# Create necessary directories (if your app needs them)
+# Create necessary directories
 RUN mkdir -p models data
 
-# Expose port (Railway uses PORT env variable, but your app uses 5000)
+# Expose port
 EXPOSE 5000
 
 # Use your existing run.py script
