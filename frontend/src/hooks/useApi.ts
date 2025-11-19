@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { StudentData, PredictionResponse } from '../types/Student';
 
-const API_BASE_URL = 'http://localhost:5000/api';
+const API_BASE_URL = 'https://spirited-serenity-production.up.railway.app/api';
+
 
 export const useApi = () => {
   const [loading, setLoading] = useState(false);
